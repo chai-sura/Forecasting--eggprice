@@ -1,6 +1,5 @@
-# ==============================================================================
 # DATA SPLITTING FOR MODEL EVALUATION
-# ==============================================================================
+
 # This script splits the egg price data into training and validation sets
 # Now using inflation-adjusted prices for more meaningful analysis
 
@@ -21,9 +20,7 @@ source("scripts/load_data.R")
 # Verify if inflation-adjusted prices are being used
 cat("Using", ifelse(file.exists("data/eggs_adjusted.csv"), "inflation-adjusted", "nominal"), "egg prices for analysis\n")
 
-# ==============================================================================
 # 1. SPLITTING THE DATA
-# ==============================================================================
 # Determine the end date of the data
 end_date <- max(eggs$date)
 cat("End date of the dataset:", format(end_date, "%B %Y"), "\n")
@@ -59,9 +56,7 @@ cat("Validation set: from", tsp(validation_ts)[1], "to", tsp(validation_ts)[2], 
 cat("Training set length:", length(train_ts), "observations\n")
 cat("Validation set length:", length(validation_ts), "observations\n")
 
-# ==============================================================================
 # 2. VISUALIZING THE SPLIT
-# ==============================================================================
 # Create a data frame indicating which points belong to training vs validation
 viz_data <- eggs %>%
   mutate(
@@ -141,9 +136,7 @@ print(zoomed_plot)
 # Save the zoomed visualization
 ggsave("visuals/2_data_splitting/train_validation_split_zoomed.png", zoomed_plot, width = 10, height = 6, dpi = 300, bg = "white")
 
-# ==============================================================================
 # 3. SAVE OBJECTS FOR MODEL BUILDING
-# ==============================================================================
 # Save the split datasets in the R session's global environment
 # This makes them available for subsequent scripts
 
@@ -159,9 +152,7 @@ cat("3. Visualizations saved in 'visuals/2_data_splitting/' directory\n\n")
 cat("Ready to proceed with model building.\n")
 cat("==============================================================================\n")
 
-# ==============================================================================
 # 4. COMPREHENSIVE PERIOD VISUALIZATION
-# ==============================================================================
 # Create a visualization showing training, validation, and forecast periods
 
 # Define consistent colors
