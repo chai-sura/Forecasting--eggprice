@@ -1,6 +1,4 @@
-# ===============================================================================
 # AUTO ARIMA FULL DATA FORECAST TABLE (12-MONTH HORIZON)
-# ===============================================================================
 library(tidyverse)
 library(forecast)
 library(lubridate)
